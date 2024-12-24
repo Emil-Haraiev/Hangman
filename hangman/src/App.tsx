@@ -3,6 +3,7 @@ import { HangmanDrawing } from "./HangmanDrawing.tsx"
 import { HangmanWord } from "./HangmanWord.tsx"
 import { Keyboard } from "./Keyboard.tsx"
 import words from "./wordList.json"
+import {Button} from "./Button.tsx";
 
 function getWord() {
   return words[Math.floor(Math.random() * words.length)]
@@ -75,9 +76,10 @@ function App() {
           }}
       >
         <div style={{ fontSize: "2rem", textAlign: "center" }}>
-          {isWinner && "Winner! - Refresh to try again"}
-          {isLoser && "Nice Try - Refresh to try again"}
+          {isWinner && "Winner! - Press restart to try again"}
+          {isLoser && "Loser! - Press restart to try again"}
         </div>
+          <Button/>
         <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
         <HangmanWord
             reveal={isLoser}
